@@ -1,6 +1,6 @@
 defmodule GenQueue.Adapters.Oban do
   @moduledoc """
-  An adapter for `GenQueue` to enable functionaility with `Oban`.
+  An adapter for `GenQueue` to enable functionality with `Oban`.
   """
 
   use GenQueue.JobAdapter
