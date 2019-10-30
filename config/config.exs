@@ -14,6 +14,8 @@ config :gen_queue_oban, GenQueue.Repo,
   pool: Ecto.Adapters.SQL.Sandbox,
   log: :debug
 
+config :logger, level: :debug
+
 config :gen_queue_oban, Oban,
   repo: GenQueue.Repo,
   queues: false,
