@@ -11,7 +11,8 @@ config :gen_queue_oban, GenQueue.Repo,
   hostname: "localhost",
   poolsize: 10,
   priv: "test/support/repo",
-  pool: Ecto.Adapters.SQL.Sandbox
+  pool: Ecto.Adapters.SQL.Sandbox,
+  log: :debug
 
 config :gen_queue_oban, Oban,
   repo: GenQueue.Repo,
