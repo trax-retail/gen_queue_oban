@@ -1,6 +1,7 @@
 defmodule GenQueueTaskBunny.MixProject do
   use Mix.Project
 
+  @project_url "https://github.com/Trax-retail/gen_queue_oban"
   @version "0.1.0"
 
   def project do
@@ -38,7 +39,7 @@ defmodule GenQueueTaskBunny.MixProject do
       maintainers: ["Trax Retail"],
       licenses: ["MIT"],
       links: %{
-        "GitHub" => "https://github.com/Trax-retail/gen_queue_oban",
+        "GitHub" => @project_url,
         "GenQueue" => "https://github.com/nsweeting/gen_queue"
       }
     ]
