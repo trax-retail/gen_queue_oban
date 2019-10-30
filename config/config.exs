@@ -9,6 +9,7 @@ config :gen_queue_oban, GenQueue.Repo,
   password: "postgres",
   database: "gen_queue_oban_test",
   hostname: "localhost",
+  poolsize: 10,
   priv: "test/support/repo",
   pool: Ecto.Adapters.SQL.Sandbox
 
