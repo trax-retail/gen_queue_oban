@@ -28,6 +28,7 @@ defmodule GenQueue.Adapters.ObanTest do
     test "enqueues and runs job from module" do
       {:ok, pid} = Enqueuer.start_link()
       {:ok, job} = Enqueuer.push(Job)
+      IO.puts("enqueues and runs job from module (pid: #{pid})")
       assert_enqueued(worker: Job, args: %{})
       assert %GenQueue.Job{module: Job, args: [%{}]} = job
       stop_process(pid)
@@ -36,6 +37,7 @@ defmodule GenQueue.Adapters.ObanTest do
     test "enqueues and runs job from module tuple" do
       {:ok, pid} = Enqueuer.start_link()
       {:ok, job} = Enqueuer.push({Job})
+      IO.puts("enqueues and runs job from module tuple (pid: #{pid})")
       assert_enqueued(worker: Job, args: %{})
       assert %GenQueue.Job{module: Job, args: [%{}]} = job
       stop_process(pid)
@@ -44,6 +46,7 @@ defmodule GenQueue.Adapters.ObanTest do
     test "enqueues and runs job from module and args" do
       {:ok, pid} = Enqueuer.start_link()
       {:ok, job} = Enqueuer.push({Job, [%{"foo" => "bar"}]})
+      IO.puts("enqueues and runs job from module and args (pid: #{pid})")
       assert_enqueued(worker: Job, args: %{"foo" => "bar"})
       assert %GenQueue.Job{module: Job, args: [%{"foo" => "bar"}]} = job
       stop_process(pid)
@@ -52,6 +55,7 @@ defmodule GenQueue.Adapters.ObanTest do
     test "enqueues and runs job from module and single arg" do
       {:ok, pid} = Enqueuer.start_link()
       {:ok, job} = Enqueuer.push({Job, %{"foo" => "bar"}})
+      IO.puts("enqueues and runs job from module and single arg (pid: #{pid})")
       assert_enqueued(worker: Job, args: %{"foo" => "bar"})
       assert %GenQueue.Job{module: Job, args: [%{"foo" => "bar"}]} = job
       stop_process(pid)
@@ -63,6 +67,7 @@ defmodule GenQueue.Adapters.ObanTest do
       dt_delay_with_delta = DateTime.add(dt_delay, 60, :second)
       {:ok, pid} = Enqueuer.start_link()
       {:ok, job} = Enqueuer.push({Job, []}, delay: delay_ms)
+      IO.puts("enqueues a job with millisecond based delay (pid: #{pid})")
       assert_enqueued(worker: Job, args: %{})
       [record] = all_enqueued(worker: Job, args: %{})
       assert [:gt, :eq] |> Enum.member?(DateTime.compare(record.scheduled_at, dt_delay))
@@ -76,6 +81,7 @@ defmodule GenQueue.Adapters.ObanTest do
       dt_delay_with_delta = DateTime.add(dt_delay, 60, :second)
       {:ok, pid} = Enqueuer.start_link()
       {:ok, job} = Enqueuer.push({Job, []}, delay: dt_delay)
+      IO.puts("enqueues a job with datetime based delay (pid: #{pid})")
       assert_enqueued(worker: Job, args: %{})
       [record] = all_enqueued(worker: Job, args: %{})
       assert [:gt, :eq] |> Enum.member?(DateTime.compare(record.scheduled_at, dt_delay))
