@@ -19,4 +19,3 @@ end
 Ecto.Adapters.SQL.Sandbox.mode(GenQueue.Repo, :manual)
 
 ExUnit.start()
-
