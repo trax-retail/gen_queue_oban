@@ -3,7 +3,7 @@
 [![GenQueue Oban Version](https://img.shields.io/hexpm/v/gen_queue_oban.svg)](https://hex.pm/packages/gen_queue_oban)
 
 This is an adapter for [GenQueue](https://github.com/nsweeting/gen_queue) to enable
-functionaility with [Oban](https://github.com/sorentwo/oban).
+functionality with [Oban](https://github.com/sorentwo/oban).
 
 ## Installation
 
