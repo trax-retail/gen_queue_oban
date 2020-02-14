@@ -2,7 +2,7 @@ defmodule GenQueueTaskBunny.MixProject do
   use Mix.Project
 
   @project_url "https://github.com/Trax-retail/gen_queue_oban"
-  @version "0.1.0"
+  @version "0.2.0"
 
   def project do
     [
@@ -57,7 +57,7 @@ defmodule GenQueueTaskBunny.MixProject do
   defp deps do
     [
       {:gen_queue, "~> 0.1.8"},
-      {:oban, "~> 0.10"},
+      {:oban, "~> 1.0"},
       {:ex_doc, "~> 0.21.2", only: :dev}
     ]
   end
